@@ -1,15 +1,15 @@
-# URIM - Universal Serial Bus Replication Medium
-![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/rk797/URIM&title=Views&edge_flat=true)
+# Axion - Universal Serial Bus Replication Medium
+![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/rk797/Axion&title=Views&edge_flat=true)
 
 
-**URIM** is an Arduino firmware that serves as a controlled USB mouse emulator. It works by receiving designated instructions from the host for mouse actions through the USB HID protocol and executing these actions while acting as an actual USB HID Mouse. **URIM** firmware is also capable of interpreting 16-bit data from the mouse and replicating it to the computer.
+**Axion** is an Arduino firmware that serves as a controlled USB mouse emulator. It works by receiving designated instructions from the host for mouse actions through the USB HID protocol and executing these actions while acting as an actual USB HID Mouse. **Axion** firmware is also capable of interpreting 16-bit data from the mouse and replicating it to the computer.
 
-A unique feature of URIM is its ability to receive external UART command injections, enabling real-time control and manipulation of mouse actions via a secondary chip (CH340). This allows for integration with other devices or systems for custom input manipulation.
+A unique feature of Axion is its ability to receive external UART command injections, enabling real-time control and manipulation of mouse actions via a secondary chip (CH340). This allows for integration with other devices or systems for custom input manipulation.
 
-URIM also includes a vendor-defined interface to perform I/O-based transmit (TX) and receive (RX) transfers. These transfers are utilized to retrieve the state of external keys. This functionality has been implemented in the rk-mouse API under the GetAsyncKeyState() method, which allows for asynchronous polling of key states via I/O requests.
+Axion also includes a vendor-defined interface to perform I/O-based transmit (TX) and receive (RX) transfers. These transfers are utilized to retrieve the state of external keys. This functionality has been implemented in the rk-mouse API under the GetAsyncKeyState() method, which allows for asynchronous polling of key states via I/O requests.
 
-# How is URIM different?
-The main difference between **URIM** firmware and other mouse replication firmware is that **URIM** can programmatically fetch and parse the report descriptor for any 16-bit or 8-bit mouse connected to the host. 
+# How is Axion different?
+The main difference between **Axion** firmware and other mouse replication firmware is that **Axion** can programmatically fetch and parse the report descriptor for any 16-bit or 8-bit mouse connected to the host. 
 
 ## Key Features
 ```sh-session
@@ -30,7 +30,7 @@ UART Command Injection
 The system utilizes two HID interfaces. One interface belongs to the HID Mouse class, while the other involves a Generic HID class `Raw HID`, primarily functioning as an output from host to relay mouse reports via `Raw HID` to Arduino and dictate mouse behaviors like movements and button clicks.
 
 ## Purpose
-**URIM** serves a distinct purpose: **externally** mimicking a mouse device to execute mouse actions while being controlled by the host system. URIM also parses and replicates all 8 bit and 16 bit mouse data to the computer via its Mouse Interface, and can be used to simulate and control mouse movements without direct user interaction. 
+**Axion** serves a distinct purpose: **externally** mimicking a mouse device to execute mouse actions while being controlled by the host system. Axion also parses and replicates all 8 bit and 16 bit mouse data to the computer via its Mouse Interface, and can be used to simulate and control mouse movements without direct user interaction. 
 The UART injection feature allows remote systems to send mouse control commands to the Arduino, which then get replicated to the host computer.
 ```sh-session
 [USB Mouse] --> [USB Host Shield 2.0] --> [Arduino Leonardo] 
@@ -65,7 +65,7 @@ The UART injection feature allows remote systems to send mouse control commands 
 - USB Host Shield 2.0
 ```
 ## Client Dependencies
-URIM client relies on rkMouseApi class which is reponsible for providing a simple Mouse API and forwarding the instructions to external MCU. URIM depends on [hidapi](https://github.com/libusb/hidapi) library to interface with Arduino over USB HID.
+Axion client relies on rkMouseApi class which is reponsible for providing a simple Mouse API and forwarding the instructions to external MCU. Axion depends on [hidapi](https://github.com/libusb/hidapi) library to interface with Arduino over USB HID.
 
 # Firmware Setup
 ## 1. Install Dependencies (ARDUINO CLI)
